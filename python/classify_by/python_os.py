@@ -1,6 +1,8 @@
 # https://pbpython.com/pathlib-intro.html
 import os
 from pathlib import Path
+import pandas as pd
+import time
 # 1.1 way1 by using os
 in_file = os.path.join(os.getcwd(), "in/input.xlsx")
 out_file = os.path.join(os.getcwd(), "out/output.xlsx")
@@ -54,3 +56,14 @@ for i in p.glob('*.*'):
 # rglob: automatically recurse through the subdirectorie
 print(list(p.rglob('*.csv')))
 print(list(p.rglob('*.[!xlsx]*')))
+
+# example:
+p = Path("/Users/mwang/Desktop")
+all_files = []
+for i in p.rglob('*.xlsx'):
+    all_files.append((i.name, i.parent, time.ctime(i.stat().st_ctime)))
+
+columns = ["File_Name", "Parent", "Created"]
+df = pd.DataFrame.from_records(all_files, columns=columns)
+
+print(df.head())

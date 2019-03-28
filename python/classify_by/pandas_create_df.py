@@ -2,6 +2,7 @@
 import pandas as pd
 from collections import OrderedDict
 from datetime import date
+import time
 
 # 1. dict -> row oriented
 sales = [{'account': 'Jones LLC', 'Jan': 150, 'Feb': 200, 'Mar': 140},
@@ -53,4 +54,7 @@ sales = [('account', ['Jones LLC', 'Alpha Co', 'Blue Inc']),
 df = pd.DataFrame.from_items(sales) # from_items is deprecated
 df = pd.DataFrame.from_dict(OrderedDict(sales))
 print(df)
+
+
+
 
