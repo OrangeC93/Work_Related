@@ -19,6 +19,11 @@ print(np.full((2,3),8)) #2*3 array with value of 8
 print(np.random.rand(4,5)) #4x5 array of random floats between 0-1
 print(np.random.rand(6,7)*100) ##4x5 array of random floats between 0-100
 print(np.random.randint(5,size=(2,3)))
+choices = ['A', 'Z']
+print(np.choose(a, choices))
+conditions = [x<-1,x>2]
+choices = [x, x**2]
+print(np.select(conditions, choices))
 
 # inspect array
 print(a.size)
@@ -59,10 +64,10 @@ a[1,1] = 10 #a[0] = 4
 print(a[0:3])
 print(a[0:2,1])
 print(a[:1])
-print(a[:,1])
 print(a<5)
 print((a<3) & (a>5))
 print(a[a<5])
+print(np.where(a < 0, 2 * x, 3 * x))
 
 #math
 print(np.add(a,1))
