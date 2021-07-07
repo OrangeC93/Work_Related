@@ -1,0 +1,37 @@
+---
+title: "Untitled"
+output: html_document
+Reference: "https://www.youtube.com/watch?v=qz_tddlFYLM&list=PLaZuFfQk5gXN1Lt9lerIa5mtOzzQaKfDM&index=4"
+---
+```{r}
+curve(exp(-x+cos(x))*exp(-x), 0, 2.5, n =101, add=FALSE, type="l", ylab=NULL, log=NULL, lwd=3)
+curve(exp(-x), 0, 2.5, add=TRUE, col="violet",lwd=3)
+curve(2*exp(-2*x), 0, 2.5, add=TRUE, col="orange",lwd=3)
+```
+
+```{r}
+m = 1000
+
+X = rexp(m, rate=2)
+weight = c()
+mu = c()
+
+for (i in 1:m){
+  weight[i] = dexp(X[i])/dexp(X[i], rate=2)
+  mu[i] = weight[i]*exp((-1*(X[i]))+cos(X[i]))
+}
+```
+
+```{r}
+# estimated mu
+mean(mu)
+sqrt(var(mu)/m)
+```
+
+```{r}
+# Naive MC
+X = rexp(m, 1)
+mean(exp(-1*X+cos(X)))
+sqrt(var(exp(-1*X+cos(X)))/m)
+```
+
