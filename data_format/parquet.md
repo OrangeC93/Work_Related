@@ -1,0 +1,1 @@
+https://towardsdatascience.com/csv-files-for-storage-no-thanks-theres-a-better-option-72c78a414d1d#:~:text=Both%20CSV%20and%20Parquet%20formats,organize%20the%20data%20in%20columns.&text=In%20a%20nutshell%2C%20column%20storage,be%20done%20for%20each%20column.
