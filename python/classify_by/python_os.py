@@ -25,6 +25,7 @@ print(in_file_3)
 
 dir_to_scan = "/Users/mwang/Desktop/Work_Related"
 p = Path(dir_to_scan)
+os.chdir(dir_to_scan) 
 print(p.is_dir())
 print(p.is_file())
 print(p.parts)
